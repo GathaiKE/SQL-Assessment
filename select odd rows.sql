@@ -1,0 +1,6 @@
+SELECT *
+FROM (
+  SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS RowNum, *
+  FROM employees
+) AS t
+WHERE t.RowNum % 2 = 1;
